@@ -1,18 +1,21 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-export default function App() {
-  const [test, setTest] = useState(0);
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+  }
+  state = {
+    test: 0
+  };
 
-  // const countUpMethod = () => {
-  //   setTest( test + 1 )
-  // }
-
-  return (
-    <div>
-      {test}
-      <button onClick={ () => setTest(test + 1) }>Click</button>
-      {/* <button onClick={countUpMethod}>Click</button> */}
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        {this.state.test}
+        <button onClick={() => {this.setState((prevState) => { return {test: prevState.test +1 };});}}>Click</button>
+        <button onClick={() => {this.setState({ test: this.state.test + 1})}}>Click</button>
+      </div>
+    );
+  }
 }
