@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
-function App() {
+export default function App() {
+  const [test, setTest] = useState(0);
+
+  // const countUpMethod = () => {
+  //   setTest( test + 1 )
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {test}
+      <button onClick={ () => setTest(test + 1) }>Click</button>
+      {/* <button onClick={countUpMethod}>Click</button> */}
     </div>
   );
 }
-
-export default App;
